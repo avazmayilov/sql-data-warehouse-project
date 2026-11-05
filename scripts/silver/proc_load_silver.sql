@@ -43,15 +43,15 @@ BEGIN
 		TRIM(cst_firstname) AS cst_firstname,
 		TRIM(cst_lastname) AS cst_lastname,
 
+		CASE WHEN UPPER(TRIM(cst_material_status)) = 'S' THEN 'Single'
+			 WHEN UPPER(TRIM(cst_material_status)) = 'M' THEN 'Married'
+			 ELSE 'n/a'
+		END cst_marital_status,
 		CASE WHEN UPPER(TRIM(cst_gndr)) = 'F' THEN 'Female'
 			 WHEN UPPER(TRIM(cst_gndr)) = 'M' THEN 'Male'
 			 ELSE 'n/a'
 			 END cst_gndr,
 
-		CASE WHEN UPPER(TRIM(cst_material_status)) = 'S' THEN 'Single'
-			 WHEN UPPER(TRIM(cst_material_status)) = 'M' THEN 'Married'
-			 ELSE 'n/a'
-		END cst_marital_status,
 		cst_create_date
 		FROM (
 
